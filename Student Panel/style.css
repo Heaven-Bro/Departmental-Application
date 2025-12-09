@@ -1,0 +1,94 @@
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: #0a0a0a;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .btn {
+        position: relative;
+        display: inline-block;
+        padding: 18px 60px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: none;
+        border-radius: 15px;
+        background: #111;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 0;
+        transition: 0.3s;
+        perspective: 1000px;
+    }
+
+    /* Animated border */
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: calc(100% + 6px);
+        height: calc(100% + 6px);
+        background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #ff00c8, #ff0000);
+        background-size: 400%;
+        border-radius: 18px;
+        z-index: -2;
+        filter: blur(8px);
+        animation: border-glow 8s linear infinite;
+    }
+
+    /* Inner shadow for depth */
+    .btn::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: #111;
+        border-radius: 15px;
+        z-index: -1;
+        box-shadow: 0 0 20px rgba(0,255,240,0.4), 0 0 40px rgba(0,255,240,0.2), inset 0 0 10px rgba(0,255,240,0.4);
+    }
+
+    /* Hover 3D tilt */
+    .btn:hover {
+        color: #00fff0;
+        transform: rotateX(10deg) rotateY(10deg) scale(1.05);
+        box-shadow: 0 0 30px #00fff0, 0 0 60px #00fff0, inset 0 0 10px #00fff0;
+    }
+
+    /* Text shimmer effect */
+    .btn span {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        background: linear-gradient(90deg, #fff, #00fff0, #fff);
+        background-size: 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 3s linear infinite;
+    }
+
+    /* Border animation */
+    @keyframes border-glow {
+        0% { background-position: 0 0; }
+        50% { background-position: 400% 0; }
+        100% { background-position: 0 0; }
+    }
+
+    /* Text shimmer */
+    @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+
+    /* Active press effect */
+    .btn:active {
+        transform: rotateX(0deg) rotateY(0deg) scale(0.95);
+        box-shadow: 0 0 10px #00fff0, 0 0 20px #00fff0 inset;
+    }

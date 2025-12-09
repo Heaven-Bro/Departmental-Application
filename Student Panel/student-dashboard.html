@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Dept. Application System</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+        body {
+            background: #f4f7f9;
+        }
+
+        header {
+            background: #004080;
+            padding: 15px 0;
+            color: white;
+        }
+
+        header nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .dashboard-container {
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #003366;
+            padding: 20px;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .sidebar a {
+            display: block;
+            background: #004080;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 8px 0;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #ffcc00;
+            color: black;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #004080;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1 1 250px;
+            background: white;
+            border: 2px solid #004080;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background: #004080;
+            color: white;
+            cursor: pointer;
+        }
+
+        .card a {
+            text-decoration: none;
+            font-weight: bold;
+            color: inherit;
+        }
+
+        /* Timeline */
+        .timeline-box {
+            background: white;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #004080;
+            margin-bottom: 5px;
+        }
+
+        .notif-title {
+            font-size: 1.05em;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Dept. Application System</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="student-dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Student Panel</h3>
+        <a href="student-dashboard.html" style="background:#ffcc00; color:#000;">Dashboard Home</a>
+        <a href="student-certificates.html">Certificates</a>
+        <a href="student-academic.html">Academic Forms</a>
+        <a href="student-lab.html">Lab & Equipment</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>Dashboard Home</h2>
+
+        <div class="cards">
+            <div class="card"><a href="student-certificates.html">Certificates</a></div>
+            <div class="card"><a href="student-academic.html">Academic Forms</a></div>
+            <div class="card"><a href="student-lab.html">Lab / Equipment Requests</a></div>
+            <div class="card"><a href="student-profile.html">Profile</a></div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="timeline-box">
+            <h3 style="margin-bottom: 15px; color:#004080;">Recent Activities (Newest First)</h3>
+
+            <div class="timeline-item">
+                <div class="timeline-date">05 Dec 2025</div>
+                <div class="notif-title">Electronics Lab request approved</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">03 Dec 2025</div>
+                <div class="notif-title">Your NOC certificate has been issued</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">02 Dec 2025</div>
+                <div class="notif-title">Semester fee receipt uploaded successfully</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">28 Nov 2025</div>
+                <div class="notif-title">New lab equipment request submitted</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">15 Nov 2025</div>
+                <div class="notif-title">NOC application submitted</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

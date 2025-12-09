@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter of Credit (LoC) Application</title>
+
+    <style>
+        /* --------------------------
+           COLOR VARIABLES
+        --------------------------- */
+        :root {
+            --primary-color: #f4e90a;
+            --black-color: #201e1f;
+            --white-color: #ffffff;
+            --gray: #6c757d;
+            --dark-blue: #004080;
+        }
+
+        /* --------------------------
+           GLOBAL RESET
+        --------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        /* --------------------------
+           NAVBAR
+        --------------------------- */
+        header {
+            background-color: var(--dark-blue);
+            color: #fff;
+            padding: 15px 0;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        header .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        header .nav-links li a:hover {
+            color: #ffcc00;
+        }
+
+        /* --------------------------
+           BACK BUTTON
+        --------------------------- */
+        .back-button-container {
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: #003366;
+            padding: 8px 16px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: var(--dark-blue);
+        }
+
+        /* --------------------------
+           FORM SECTION
+        --------------------------- */
+        section {
+            max-width: 700px;
+            margin: 20px auto 40px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: var(--dark-blue);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* --------------------------
+           SUBMIT BUTTON
+        --------------------------- */
+        /* Center submit button */
+.buttom {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Submit button style */
+.btn {
+    display: flex;            /* FIX ✔ */
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--black-color);
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn:hover {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); /* Right + Bottom */
+}
+
+
+        /* --------------------------
+           FOOTER
+        --------------------------- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: #003366;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Dept. Application System</div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="student-dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Back Button -->
+    <div class="back-button-container">
+        <a href="home.html" class="back-button">← Back</a>
+    </div>
+
+    <section>
+        <h2>LoC Application Form</h2>
+
+        <form action="submit_loc.php" method="POST">
+
+            <div>
+                <label for="student-name">Student Name</label>
+                <input type="text" id="student-name" name="student_name" required>
+            </div>
+
+            <div>
+                <label for="student-id">Student ID / Roll Number</label>
+                <input type="text" id="student-id" name="student_id" required>
+            </div>
+
+            <div>
+                <label>Session</label>
+                <select name="session" required>
+                    <option value="" disabled selected>-- Session --</option>
+                    <option value="2020-2021">2020–2021</option>
+                    <option value="2021-2022">2021–2022</option>
+                    <option value="2022-2023">2022–2023</option>
+                    <option value="2023-2024">2023–2024</option>
+                    <option value="2024-2025">2024–2025</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="department">Department</label>
+                <input type="text" id="department" name="department" required>
+            </div>
+
+            <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div>
+                <label for="purpose">Purpose of LoC</label>
+                <textarea id="purpose" name="purpose" required placeholder="Briefly mention the purpose..."></textarea>
+            </div>
+
+            <div>
+                <label for="date-needed">Date Required</label>
+                <input type="date" id="date-needed" name="date_needed" required>
+            </div>
+
+            <div>
+                <label for="document-type">Type of LoC</label>
+                <select id="document-type" name="document_type" required>
+                    <option value="">-- Select Type --</option>
+                    <option value="Bank">Bank</option>
+                    <option value="University">University</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="buttom">
+                <button class="btn"><span>Submit</span></button>
+            </div>
+
+
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2025 Departmental Application System | All Rights Reserved
+    </footer>
+
+</body>
+
+</html>

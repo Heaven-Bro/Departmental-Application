@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Departmental Application System</title>
+<style>
+    /* --------------------------
+       GENERAL STYLES
+    --------------------------- */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* full height */
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* --------------------------
+       NAVBAR
+    --------------------------- */
+    header {
+        background-color: #004080;
+        color: #fff;
+        padding: 15px 0;
+    }
+
+    header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    header .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+
+    header .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    header .nav-links li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    header .nav-links li a:hover {
+        color: #ffcc00;
+    }
+
+    /* --------------------------
+       SECTION
+    --------------------------- */
+    section.about {
+        max-width: 900px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        flex: 1; /* fills remaining space to push footer down */
+    }
+
+    section.about h1 {
+        color: #004080;
+        margin-bottom: 20px;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    section.about p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        text-align: justify;
+    }
+
+    /* --------------------------
+       FOOTER
+    --------------------------- */
+    footer {
+        background-color: #004080;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    /* --------------------------
+       RESPONSIVE
+    --------------------------- */
+    @media (max-width: 768px) {
+        header nav {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        section.about {
+            margin: 30px 20px;
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Dept. Application System</div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="student-dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Logout</a></li>
+                 
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about">
+        <h1>About the Departmental Application System</h1>
+        <p>
+            This system allows students to apply online for certificates, workshops, lab/equipment access, and fee submission. 
+            It reduces paperwork, speeds up approvals, and provides real-time notifications. 
+            The system ensures transparency, tracks application status, and automates approvals digitally, creating a modern academic workflow.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Departmental Application System | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
