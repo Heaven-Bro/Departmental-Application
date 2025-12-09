@@ -63,7 +63,7 @@
         background-color: #f4f7f9;
         color: #333;
         line-height: 1.6;
-         
+
     }
 
     header {
@@ -73,18 +73,18 @@
     }
 
     header {
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;    
-    margin: 0 auto;       
-    padding: 0 20px;
-}
+    header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
     .logo {
         display: flex;
@@ -123,54 +123,6 @@ header nav {
         position: relative;
         /* important for absolute dropdown positioning */
     }
-
-
-    .nav-links li .dropdown_manu {
-        display: none;
-        list-style: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: var(--white-color);
-        min-width: 220px;
-        border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        z-index: 1000;
-        padding: 0;
-        /* remove default padding */
-    }
-
-    .nav-links li .dropdown_manu li {
-        border-bottom: 1px solid #e0e0e0;
-        /* border between items */
-    }
-
-    .nav-links li .dropdown_manu li:last-child {
-        border-bottom: none;
-        /* remove border for last item */
-    }
-
-    .nav-links li .dropdown_manu li a {
-        display: block;
-        padding: 10px 15px;
-        text-decoration: none;
-        color: var(--black-color);
-        /* keep text color unchanged */
-        transition: box-shadow 0.3s;
-    }
-
-    .nav-links li .dropdown_manu li a:hover {
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        /* only shadow on hover */
-        color: var(--primary);
-    }
-
-    /* Show dropdown on hover */
-    .nav-links li:hover .dropdown_manu {
-        display: block;
-    }
-
-
 
     /* --------------------------
    HERO SECTION (Home Page)
@@ -265,12 +217,39 @@ header nav {
         padding: 20px;
         margin-top: 40px;
     }
+    .hamburger {
+        display: none;
+        font-size: 1.8em;
+        cursor: pointer;
+    }
+     /* Responsive Navigation */
+    @media screen and (max-width: 768px) {
+        .nav-links {
+            position: absolute;
+            top: 70px;
+            left: -100%;
+            flex-direction: column;
+            background-color: var(--white-color);
+            width: 100%;
+            transition: left 0.3s ease;
+            padding: 20px 0;
+        }
 
+        .hamburger {
+            display: block;
+        }
+
+        .nav-links.active {
+            left: 0;
+        }
+
+    /*
     @media(max-width:600px) {
         .details-box {
             min-width: 100%;
         }
     }
+    */
 </style>
 
 <body>
@@ -278,37 +257,21 @@ header nav {
         <nav>
             <div class="logo">
                 <img src="https://just.edu.bd/logo/download-mob.jpeg" alt="JUST Logo">
-                Dept. Application System
+                CSE Department Application Portal
             </div>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="student-dashboard.html">Dashboard</a></li>
                 <!-- HTML snippet -->
-                <li class="dropdown">
-                    <a href="#">Certificates <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown_manu">
-                        <li><a href="#">Letter of Credit (LoC)</a></li>
-                        <li><a href="#">No Objection Certificate (NOC)</a></li>
-                        <li><a href="#">Appeared Certificate</a></li>
-                        <li><a href="#">Computer / Non-Departmental Experience Certificate</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Forms <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown_manu">
-                        <li><a href="#">Scholarship Application</a></li>
-                        <li><a href="#">Workshop / Training Application</a></li>
-                        <li><a href="#">Course Registration Form</a></li>
-                        <li><a href="#">Semester Fee Receipt</a></li>
-                        <li><a href="#">Course Registration Fee</a></li>
-                        <li><a href="#">Club Subscription Fee</a></li>
-                    </ul>
-                </li>
+                <li><a href="forms">Forms</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="login.html">Logout</a></li>
             </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
     <!-- Hero Section -->
@@ -350,6 +313,14 @@ header nav {
     <footer>
         <p>&copy; 2025 Departmental Application System | All Rights Reserved</p>
     </footer>
-</body>
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
 
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+
+</body>
 </html>
