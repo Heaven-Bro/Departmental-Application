@@ -11,7 +11,6 @@
 <style>
     * {
         margin: 0;
-        padding: 0;
         box-sizing: border-box;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
@@ -92,12 +91,10 @@
         font-size: 1.8em;
         font-weight: bold;
         gap: 12px;
-        /* space between image and text */
     }
 
     .logo img {
         width: 50px;
-        /* adjust size */
         height: 50px;
         object-fit: contain;
     }
@@ -124,9 +121,6 @@
         /* important for absolute dropdown positioning */
     }
 
-    /* --------------------------
-   HERO SECTION (Home Page)
---------------------------- */
     .hero {
         text-align: center;
         padding: 100px 20px;
@@ -143,65 +137,158 @@
         margin-bottom: 30px;
     }
 
-    section {
-        max-width: 1000px;
-        margin: 50px auto;
-        padding: 0 20px;
-    }
 
-    h2 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: var(--dark);
-    }
-
+    /* Container for all cards */
     .details-section {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
         justify-content: center;
-        margin-bottom: 50px;
+        gap: 20px;
+        text-align: center;
+        padding-bottom: 130px;
     }
 
     .details-section h2 {
         width: 100%;
-        text-align: center;
-        margin-bottom: 20px;
+        font-size: 32px;
+        margin-bottom: 30px;
     }
 
-    /* Boxes for each item */
+    /* Each card */
     .details-box {
-        background-color: #fff;
-        border: 1.5px solid #e5e5e5;
-        /* light clean border */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        /* smooth shadow */
-        border-radius: 12px;
-        padding: 25px 20px;
-        min-width: 220px;
-        text-align: center;
+        position: relative;
+        /* important for absolute dropdown positioning */
+        width: 330px;
+        background: #fff;
+        border-radius: 14px;
+        padding: 18px 20px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
         transition: all 0.3s ease;
-        flex: 1 1 220px;
-        cursor: pointer;
+        overflow: visible;
+        /* allow dropdown to appear outside */
     }
 
+    /* Summary row layout */
+    summary {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        cursor: pointer;
+        padding-bottom: 8px;
+        list-style: none;
+        user-select: none;
+    }
 
-    .details-box a {
-        text-decoration: none;
-        color: var(--black-color);
+    /* Remove default arrow */
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* Left icon */
+    .left i {
+        font-size: 30px;
+        color: #4b5563;
+        min-width: 30px;
+        text-align: center;
+    }
+
+    /* Right side (title + arrow) */
+    .right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Title */
+    .right span {
+        font-size: 18px;
         font-weight: 600;
-        font-size: 1.1em;
+        line-height: 22px;
+    }
+
+    /* Arrow rotation */
+    .arrow {
+        font-size: 16px;
+        margin-left: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    details[open] .arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Dropdown Content – floating box */
+    .content {
+        position: absolute;
+        /* position: relative; */
+        top: 100%;
+        left: 0;
+        width: 330px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        margin-top: 10px;
+        padding: 15px 20px;
+        z-index: 10;
+        display: none;
+        animation: fadeIn 0.3s ease;
+    }
+
+    details[open] .content {
         display: block;
     }
 
-    .details-box:hover {
-        /*background-color: #004080;*/
-        color: #fff;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* Small animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-    .details-box:hover a {
-        color: var(--secondary-color)
+    /* Button styling  
+        .btn {
+        position: relative;
+        padding: 10px 18px;
+         margin-top: 15px;
+         font-size: 15px;
+        color: var(--black-color);
+        background-color: var(--primary-color);
+        border-radius: 15px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: 0.3s;
+        border: none;
+    } */
+    .btn {
+        margin-top: 15px;
+        background-color: #1e40af;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: 0.2s ease;
+    }
+
+
+
+    .btn:hover {
+        box-shadow: 8px 8px 15px var(--gray);
+    }
+
+    /* Optional: close dropdown when clicking outside */
+    details summary:focus {
+        outline: none;
     }
 
     footer {
@@ -217,12 +304,14 @@
         padding: 20px;
         margin-top: 40px;
     }
+
     .hamburger {
         display: none;
         font-size: 1.8em;
         cursor: pointer;
     }
-     /* Responsive Navigation */
+
+    /* Responsive Navigation */
     @media screen and (max-width: 768px) {
         .nav-links {
             position: absolute;
@@ -230,9 +319,9 @@
             left: -100%;
             flex-direction: column;
             background-color: var(--white-color);
-            width: 100%;
+            width: 70%;
             transition: left 0.3s ease;
-            padding: 20px 0;
+            padding: 20px 0 20px 20px;
         }
 
         .hamburger {
@@ -242,14 +331,6 @@
         .nav-links.active {
             left: 0;
         }
-
-    /*
-    @media(max-width:600px) {
-        .details-box {
-            min-width: 100%;
-        }
-    }
-    */
 </style>
 
 <body>
@@ -263,7 +344,7 @@
                 <li><a href="home.html">Home</a></li>
                 <li><a href="student-dashboard.html">Dashboard</a></li>
                 <!-- HTML snippet -->
-                <li><a href="forms">Forms</a></li>
+                <li><a href="forms.html">Forms</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="about.html">About</a></li>
@@ -278,49 +359,358 @@
     <section class="hero">
         <h1>Welcome to the Departmental Application System</h1>
         <p>Apply online for certificates, workshops, equipment access, and more.</p>
-
     </section>
-    <!-- Certificates Section -->
+
     <section class="details-section">
         <h2>Certificates</h2>
-        <div class="details-box"><a href="loc.html">Letter of Credit (LoC)</a></div>
-        <div class="details-box"><a href="NOC.html">No Objection Certificate (NOC)</a></div>
-        <div class="details-box"><a href="Appeared Certificate.html">Appeared Certificate</a></div>
-        <div class="details-box"><a href="non departmental.html">Computer / Non-Departmental Experience Certificate</a>
-        </div>
+
+        <!-- LoC -->
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <div class="right">
+                    <span>Letter of Credit (LoC)</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Prepare documentation</li>
+                    <li>Step 2: Submit application</li>
+                    <li>Step 3: Verification</li>
+                    <li>Step 4: Issue certificate</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
+        <!-- NOC -->
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <div class="right">
+                    <span>No Objection Certificate (NOC)</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Fill request form</li>
+                    <li>Step 2: Approval process</li>
+                    <li>Step 3: Document verification</li>
+                    <li>Step 4: Certificate issued</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
+        <!-- Appeared Certificate -->
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <div class="right">
+                    <span>Appeared Certificate</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Apply</li>
+                    <li>Step 2: Exam info validation</li>
+                    <li>Step 3: Approval</li>
+                    <li>Step 4: Certificate provided</li>
+                </ul>
+
+                <button class="btn"><span>Apply</span></button>
+
+            </div>
+        </details>
+
+        <!-- Non-Departmental -->
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-computer"></i>
+                </div>
+                <div class="right">
+                    <span>Computer / Non-Departmental Experience Certificate</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Submit experience documents</li>
+                    <li>Step 2: Upload files</li>
+                    <li>Step 3: Verification</li>
+                    <li>Step 4: Certificate issued</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
     </section>
+
 
     <!-- Academic Forms Section -->
     <section class="details-section">
         <h2>Academic Service Forms</h2>
-        <div class="details-box"><a href="scholarship.html">Scholarship Application</a></div>
-        <div class="details-box"><a href="workshop.html">Workshop / Training Application</a></div>
-        <div class="details-box"><a href="course-registration.html">Course Registration Form</a></div>
-        <div class="details-box"><a href="semester-fee-receipt.html">Semester Fee Receipt</a></div>
-        <div class="details-box"><a href="course-registration-fee.html">Course Registration Fee</a></div>
-        <div class="details-box"><a href="club-fee.html">Club Subscription Fee</a></div>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="right">
+                    <span>Scholarship Application</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Fill application form</li>
+                    <li>Step 2: Submit required documents</li>
+                    <li>Step 3: Verification by office</li>
+                    <li>Step 4: Scholarship approval</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="right">
+                    <span>Workshop / Training Application</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Select workshop/training</li>
+                    <li>Step 2: Fill application form</li>
+                    <li>Step 3: Submit for approval</li>
+                    <li>Step 4: Confirm registration</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="right">
+                    <span>Course Registration Form</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Choose courses</li>
+                    <li>Step 2: Fill registration form</li>
+                    <li>Step 3: Submit for approval</li>
+                    <li>Step 4: Confirm registration</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-receipt"></i>
+                </div>
+                <div class="right">
+                    <span>Semester Fee Receipt</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Fill fee request form</li>
+                    <li>Step 2: Submit payment proof</li>
+                    <li>Step 3: Verification by accounts</li>
+                    <li>Step 4: Receive receipt</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-money-check-alt"></i>
+                </div>
+                <div class="right">
+                    <span>Course Registration Fee</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Fill fee form</li>
+                    <li>Step 2: Make payment</li>
+                    <li>Step 3: Submit payment proof</li>
+                    <li>Step 4: Confirm fee payment</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="right">
+                    <span>Club Subscription Fee</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Choose club</li>
+                    <li>Step 2: Fill subscription form</li>
+                    <li>Step 3: Make payment</li>
+                    <li>Step 4: Confirm membership</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
     </section>
 
     <!-- Lab & Equipment Section -->
     <section class="details-section">
         <h2>Lab & Equipment Access</h2>
-        <div class="details-box"><a href="lab-access.html">Apply for Lab / Instrumentation Access</a></div>
-        <div class="details-box"><a href="equipment-request.html">Request Equipment Issuance</a></div>
-        <div class="details-box"><a href="equipment-status.html">Track Equipment Availability</a></div>
-        <div class="details-box"><a href="equipment-return.html">Track Equipment Return & Condition</a></div>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <div class="right">
+                    <span>Apply for Lab / Instrumentation Access</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Fill lab access form</li>
+                    <li>Step 2: Submit for approval</li>
+                    <li>Step 3: Verification by lab supervisor</li>
+                    <li>Step 4: Access granted</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="right">
+                    <span>Request Equipment Issuance</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Fill equipment request form</li>
+                    <li>Step 2: Submit required documents</li>
+                    <li>Step 3: Verification</li>
+                    <li>Step 4: Equipment issued</li>
+                </ul>
+                <button class="btn"><span>Apply</span></button>
+            </div>
+        </details>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="right">
+                    <span>Track Equipment Availability</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Check equipment list</li>
+                    <li>Step 2: Verify availability</li>
+                    <li>Step 3: Submit request if available</li>
+                    <li>Step 4: Confirmation</li>
+                </ul>
+                <button class="btn"><span>Check</span></button>
+            </div>
+        </details>
+
+        <details class="details-box">
+            <summary>
+                <div class="left">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <div class="right">
+                    <span>Track Equipment Return & Condition</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+            </summary>
+            <div class="content">
+                <p>Work Steps:</p>
+                <ul>
+                    <li>Step 1: Submit return request</li>
+                    <li>Step 2: Verification of condition</li>
+                    <li>Step 3: Approve return</li>
+                    <li>Step 4: Update record</li>
+                </ul>
+                <button class="btn"><span>Check</span></button>
+            </div>
+        </details>
     </section>
+
 
     <footer>
         <p>&copy; 2025 Departmental Application System | All Rights Reserved</p>
     </footer>
-    <script>
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
 
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
+
+
+    <script>
+        document.addEventListener("click", function (e) {
+            document.querySelectorAll("details").forEach(details => {
+                if (!details.contains(e.target)) {
+                    details.removeAttribute("open");
+                }
+            });
         });
     </script>
 
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>
