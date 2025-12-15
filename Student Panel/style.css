@@ -1,134 +1,164 @@
-  * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Tiro+Bangla:ital@0;1&display=swap');
 
-    :root {
-        --primary-color: #f4e90a;
-        --secondary-color: #4bbeff;
-        --black-color: #201e1f;
-        --white-color: #fff;
-        --blue-color: #1c213e;
-        --font-text: "Kiron", "Roboto", sans-serif;
-        --font-navigation: "Raleway", sans-serif;
-        --font-title: "Kiron", "Poppins", sans-serif;
-        --home-bc: #fff;
-    }
+* {
+     margin: 0;
+     box-sizing: border-box;
+    
+ }
 
-    :root {
-        --blue: #007bff;
-        --indigo: #6610f2;
-        --purple: #6f42c1;
-        --pink: #e83e8c;
-        --red: #dc3545;
-        --orange: #fd7e14;
-        --yellow: #ffc107;
-        --green: #28a745;
-        --teal: #20c997;
-        --cyan: #17a2b8;
-        --white: #fff;
-        --gray: #6c757d;
-        --gray-dark: #343a40;
-        --primary: #007bff;
-        --secondary: #6c757d;
-        --success: #28a745;
-        --info: #17a2b8;
-        --warning: #ffc107;
-        --danger: #dc3545;
-        --light: #f8f9fa;
-        --dark: #343a40;
-        --breakpoint-xs: 0;
-        --breakpoint-sm: 576px;
-        --breakpoint-md: 768px;
-        --breakpoint-lg: 992px;
-        --breakpoint-xl: 1200px;
-        --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
+ :root {
+    --background-color: #f4f7f9;
+    --gray: #6c757d;
+     --gray-dark: #343a40;
+     --primary-color: #f4e90a;
+     --secondary-color: #4bbeff;
+     --buttom-color: #1e40af;
+     --font-text:"Poppins", sans-serif;
+     --font-title: "Raleway", sans-serif;
+     --font-bn:"Tiro Bangla", serif;
+ }
+ .font-text{
+    font-family: var(--font-text) !important;
+ }
+ .font-title{
+    font-family: var(--font-title);
+ }
+ .font-bn{
+    font-family: var(--font-bn);
+ }
+ .primary-color{
+  background-color:var(--primary-color) !important ;
+ }
+ .buttom-color{
+    background-color: var(--buttom-color) mport !important;
+ }
 
-    body {
-        background-color: #f4f7f9;
-        color: #333;
-        line-height: 1.6;
 
-    }
 
-    header {
-        background-color: var(--white);
-        color: var(--gray-dark);
-        padding: 15px 0;
-    }
+ body {
+     background-color: var(--background-color);
+     color: #333;
+     line-height: 1.6;
 
-    header {
-        width: 100%;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+ }
 
-    header nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+ header {
+     background-color: var(--white);
+     color: var(--gray-dark);
+     padding: 15px 0;
+ }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        font-size: 1.8em;
-        font-weight: bold;
-        gap: 12px;
-    }
-
-    .logo img {
-        width: 50px;
-        height: 50px;
-        object-fit: contain;
-    }
-
-    header .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-    }
-
-    header .nav-links li a {
-        color: var(--black-color);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-    }
-
-    header .nav-links li a:hover {
-        color: var(--primary-color);
-    }
-
-    .nav-links li {
-        position: relative;
-        /* important for absolute dropdown positioning */
-    }
-    footer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        background: #161930;
-        color: #cedbfc;
-        font-weight: 400;
-        font-size: 1rem;
-        letter-spacing: .05rem;
-        font-family: var(--font-title);
-        padding: 20px;
-        margin-top: 40px;
-    }
-    .hamburger {
-        display: none;
-        font-size: 1.8em;
-        cursor: pointer;
-    }
-
+ header {
+     width: 100%;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+ header nav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 20px;
+ } 
  
 
+ .logo {
+     display: flex;
+     align-items: center;
+     font-size: 1.5em;
+     font-weight: bold;
+     gap: 12px;
+ } 
+
+ .logo img {
+     width: 50px;
+     height: 50px;
+     object-fit: contain;
+ }
  
+
+ header .nav-links {
+     list-style: none;
+     display: flex;
+     gap: 20px;
+ }
+
+ header .nav-links li a {
+     color: var(--black-color);
+     text-decoration: none;
+     font-weight: 500;
+     transition: color 0.3s;
+ }
+
+ header .nav-links li a:hover {
+     color: var(--primary-color);
+ }
+
+ .nav-links li {
+     position: relative;
+     /* important for absolute dropdown positioning */
+ }
+
+ .hamburger {
+     display: none;
+     font-size: 24px;
+     cursor: pointer;
+     color: var(--black-color);
+ }
+ 
+
+ footer {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     background: #161930;
+     color: #cedbfc;
+     font-weight: 400;
+     font-size: 1rem;
+     letter-spacing: .05rem;
+     font-family: var(--font-title);
+     padding: 20px;
+     margin-top: 40px;
+
+ }
+
+
+
+ @media screen and (max-width: 768px) {
+     .back-button-container {
+         display: none;
+     }
+
+     nav {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         background: #fff;
+         z-index: 1000;
+         line-height: 1.4;
+     }
+
+     .nav-links {
+         position: absolute;
+         top: 67px;
+         left: -100%;
+         flex-direction: column;
+         background-color: #fff;
+         width: 70%;
+         transition: left 0.3s ease;
+         padding: 20px 0 20px 20px;
+         z-index: 999;
+     }
+
+     .nav-links.active {
+         left: 0;
+     }
+
+     .hamburger {
+         display: block;
+
+     }
+
+
+ }

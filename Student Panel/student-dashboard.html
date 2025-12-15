@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Student Dashboard - Dept. Application System</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .dashboard {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+
+        }
+
+        .dashboard h1 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            color: #1c213e;
+        }
+ 
+        .profile-card {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .profile-info h2 {
+            margin-bottom: 8px;
+        }
+
+        .profile-info p {
+            margin-bottom: 4px;
+            color: #555;
+        }
+
+        .quick-access {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .card i {
+            font-size: 36px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+ 
+        .recent-activity {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .recent-activity h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f9fafb;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .status.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status.approved {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.rejected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://just.edu.bd/logo/download-mob.jpeg" alt="JUST Logo">
+                CSE Department Application Portal
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="student-dashboard.html">Dashboard</a></li>
+                <li><a href="forms.html">Forms</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    <section class="dashboard">
+        <h1>Student Dashboard</h1>
+
+        <div class="profile-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="Student Profile">
+            <div class="profile-info">
+                <h2>Md. Yasin Ahmed</h2>
+                <p><strong>Student ID:</strong> CSE1901001</p>
+                <p><strong>Batch:</strong> 19th</p>
+                <p><strong>Email:</strong> yasin@just.edu.bd</p>
+            </div>
+        </div>
+
+        <div class="quick-access">
+            <div class="card">
+                <i class="fas fa-certificate"></i>
+                <h3>Apply for Certificates</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-file-alt"></i>
+                <h3>Academic Forms</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-tools"></i>
+                <h3>Lab & Equipment Access</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Application Status</h3>
+            </div>
+        </div>
+
+        <div class="recent-activity">
+            <h2>Recent Activity</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application Type</th>
+                        <th>Date Submitted</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Appeared Certificate</td>
+                        <td>Dec 08, 2025</td>
+                        <td><span class="status pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Workshop Application</td>
+                        <td>Dec 05, 2025</td>
+                        <td><span class="status approved">Approved</span></td>
+                    </tr>
+                    <tr>
+                        <td>Equipment Issuance</td>
+                        <td>Dec 01, 2025</td>
+                        <td><span class="status.rejected">Rejected</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Departmental Application System | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
